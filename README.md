@@ -1,6 +1,6 @@
-# GitHub Copilot in IntelliJ IDEA: Reactor workshop
+# GitHub Copilot in IntelliJ IDEA: workshop
 
-A five-week Reactor series, starting the first week of February 2027. Each week has a simple challenge to solve in IntelliJ IDEA with GitHub Copilot, and a separate solution that shows how, with screenshots.
+Each week has a simple challenge to solve in IntelliJ IDEA with GitHub Copilot, and a separate solution that shows how, with screenshots.
 
 | Week | Session | Features | Challenge | Solution |
 |---|---|---|---|---|
