@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- Lists the weekly challenges so IntelliJ opens them as one Maven project.
+         Each week is a standalone app: build it from its own folder with its own Maven wrapper. -->
+    <groupId>com.contoso</groupId>
+    <artifactId>copilot-intellij-features</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Copilot for JetBrains Reactor challenges</name>
+    <modules>
+        <module>01-fundamentals</module>
+        <module>02-tooling</module>
+        <module>04-ai-finops</module>
+    </modules>
+</project>
