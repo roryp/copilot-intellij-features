@@ -2,7 +2,7 @@
 
 How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
-> 🚧 This is a placeholder. Ayan is writing the steps with the sample app.
+> 🚧 TBC
 
 ## The steps
 
