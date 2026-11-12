@@ -15,7 +15,7 @@ The task is a JSON API for the store:
 
 - **Copilot Fusion**: one choice instead of a model, with Standard or Max effort.
 - **Agent debug logs**: what each session used, in tokens and AI credits.
-- **OpenTelemetry**, optional: the same data in a trace viewer. It needs Docker.
+- **OpenTelemetry**, optional: the same data in a trace viewer. It needs Docker, installed and running.
 
 ## Get started
 

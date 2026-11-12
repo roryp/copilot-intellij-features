@@ -16,7 +16,12 @@ Find the bug and fix it. Copilot does the work with IntelliJ's own test runner, 
 
 ## Get started
 
-Run the tests:
+Copilot uses IntelliJ's test runner and debugger this week, so set up the project in IntelliJ first:
+
+- If the **Maven** tool window is empty, right-click the `pom.xml` at the top of the repo, and choose **Add as Maven Project**.
+- In File → Project Structure → Project, set **SDK** to JDK 25.
+
+Then run the tests:
 
 ```bash
 cd 02-tooling

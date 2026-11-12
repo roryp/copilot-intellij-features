@@ -4,9 +4,9 @@ How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
 ## 1. Turn on IntelliJ's MCP server
 
-In Settings → **MCP Server**, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
+In Settings → AI → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
 
-![Settings, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
+![Settings, AI, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 
@@ -52,11 +52,13 @@ Open **Customizations** at the top of Chat.
 
 ## 3. Find the bug
 
-Start a new session. In the chat box, pick **bug-hunter** in the **Agent** selector, and send:
+Start a new session. If the row under the chat box still says **Worktree** from week 1, click it and choose **Workspace**. Then, in the chat box, pick **bug-hunter** in the **Agent** selector, and send:
 
 > In 02-tooling, jackets should be 20% off, but the store sells them for $0. SaleTests fails. Find out why and fix it.
 
 ![The Agent selector under the chat box, with bug-hunter highlighted](../screenshots/02-tooling/agent-selector.png)
+
+Before Copilot runs a terminal command, a **Confirm Command Execution** dialog appears. Check the command, and confirm it.
 
 Copilot runs `SaleTests`, sets a breakpoint in `Catalog.withSalePrice()` and debugs the test. While the test is paused, IntelliJ's debugger shows the bug: `(100 - JACKET_SALE_PERCENT) / 100` is `0`. In Java, dividing two whole numbers drops the fraction, so 80 / 100 is 0.
 
@@ -78,7 +80,7 @@ int salePrice = product.price() * (100 - JACKET_SALE_PERCENT) / 100;
 
 Send:
 
-> In 02-tooling, rename the all() method in Catalog.java to products(), with IntelliJ's rename refactoring.
+> In 02-tooling, rename the all() method in Catalog.java to products(), with IntelliJ's rename refactoring. Change only files in 02-tooling.
 
 IntelliJ renames the method and every call to it.
 
@@ -86,7 +88,7 @@ IntelliJ renames the method and every call to it.
 
 ## 5. Check the page in a browser (optional)
 
-Browser use is a preview in version 1.21.1. It needs Node.js 22 or later, and Chrome or Edge with the **GitHub Copilot** browser extension.
+Browser use is a preview in version 1.21.1. It needs Node.js 22 or later, and Chrome or Edge with the **GitHub Copilot** browser extension. The extension's getting-started page covers only Copilot CLI. For IntelliJ, follow these steps:
 
 1. Turn on Settings → GitHub Copilot → Chat → Agent → **Enable Browser Use**, and click **OK**.
 2. In 02-tooling, start the store with `./mvnw spring-boot:run` (on Windows, `.\mvnw.cmd spring-boot:run`).
@@ -94,7 +96,9 @@ Browser use is a preview in version 1.21.1. It needs Node.js 22 or later, and Ch
 
    > Open http://localhost:8080 and tell me the price of each jacket.
 
-Without browser use, open <http://localhost:8080> yourself.
+   A permission prompt appears for each site Copilot opens: allow it. The browser also shows a banner that it's being debugged. That's expected.
+
+Copilot doesn't fall back to another way to open the page. If you don't have browser use, or no browser is connected, open <http://localhost:8080> yourself.
 
 ## What you used
 
@@ -110,4 +114,4 @@ The whole fix is one line in `Catalog.java`:
 +        int salePrice = product.price() * (100 - JACKET_SALE_PERCENT) / 100;
 ```
 
-The rename changes `all()` to `products()` in `Catalog.java` and `StoreController.java`.
+The rename changes `all()` to `products()` in `Catalog.java` and `StoreController.java`. No other files change.

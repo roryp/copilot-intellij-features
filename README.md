@@ -14,12 +14,23 @@ Each week has a simple challenge to solve in IntelliJ IDEA with GitHub Copilot, 
 
 - IntelliJ IDEA 2026.3, with the GitHub Copilot plugin 1.21.1 or later
 - Java 25
-- Git
+- Git, with your name and email set. When you apply a session's changes, Copilot makes a checkpoint commit, which fails without them:
+
+  ```bash
+  git config --global user.name "Your Name"
+  git config --global user.email "you@example.com"
+  ```
+
+JetBrains Marketplace still has GitHub Copilot 1.21.0. Until 1.21.1 ships, get it from the nightly channel, where it's 1.21.1-rc.3:
+
+1. In Settings → Plugins, click the gear icon, and choose **Manage Plugin Repositories**.
+2. Add `https://plugins.jetbrains.com/plugins/nightly/17718`, and click **OK**.
+3. Update GitHub Copilot, and restart IntelliJ.
 
 ## Get started
 
 Fork this repo, clone your fork, and open the folder in IntelliJ IDEA. Then start with [week 1](01-fundamentals/README.md).
 
-Each week's folder has the challenge in `README.md` and the solution in `SOLUTION.md`. Weeks 1, 2 and 4 are copies of Trail Store, a small Spring Boot store from [spring-ai-webstore](https://github.com/roryp/spring-ai-webstore). Failing tests show what to fix. The weeks don't depend on each other.
+Each week's folder has the challenge in `README.md` and the solution in `SOLUTION.md`. [.github/copilot-instructions.md](.github/copilot-instructions.md) keeps Copilot inside the week's folder, and out of the solutions. Weeks 1, 2 and 4 are copies of Trail Store, a small Spring Boot store from [spring-ai-webstore](https://github.com/roryp/spring-ai-webstore). Failing tests show what to fix. The weeks don't depend on each other.
 
 Browser use, the cloud sandbox and Copilot Fusion are still rolling out, so you might not have them yet. You can still finish every week without them.

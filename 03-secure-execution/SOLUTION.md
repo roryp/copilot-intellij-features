@@ -34,6 +34,8 @@ Reading C:\Users\you\.trail-store\canary.txt: failed, java.nio.file.AccessDenied
 
 *A sandboxed session has a **Sandbox** label next to its title.*
 
+On some Linux setups, the sandboxed run itself fails with a `NoSuchFileException`. If it does, use the [cloud sandbox](#4-try-the-cloud-sandbox-optional) instead.
+
 Sandboxed commands can use the project folder and developer tools such as Java, but not the rest of your home folder. If Copilot asks to run something outside the sandbox, choose **Reject**.
 
 In a session that has started, `/sandbox enable` and `/sandbox disable` turn the sandbox on and off for that session.

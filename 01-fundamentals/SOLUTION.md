@@ -26,7 +26,9 @@ A worktree session starts from your last commit. If Copilot asks about uncommitt
 
 ## 2. Apply both sessions' changes
 
-When a session finishes, the files it changed are listed above the chat box. Click a file to review the diff, then click **Apply** to copy the changes into your project. Then click the other session in the **Sessions** list and do the same.
+When a session finishes, the files it changed are listed above the chat box. The list starts collapsed, so click its header, such as **1 File Changed**, to open it. Click a file to review the diff, then click **Apply** to copy the changes into your project. Then click the other session in the **Sessions** list and do the same.
+
+**Apply** doesn't show a confirmation when it works. To check, open a changed file in your project. **Apply** also makes a checkpoint commit, so git needs your name and email: see [What you need](../README.md#what-you-need).
 
 ![The search session's changed file, with Undo All and Apply](../screenshots/01-fundamentals/apply.png)
 
