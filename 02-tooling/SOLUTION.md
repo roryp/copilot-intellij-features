@@ -4,9 +4,9 @@ How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
 ## 1. Turn on IntelliJ's MCP server
 
-In Settings → AI → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
+In Settings → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
 
-![Settings, AI, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
+![Settings, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 

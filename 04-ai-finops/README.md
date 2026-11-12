@@ -2,6 +2,8 @@
 
 **What does a task cost?** · Part 4 of 5 · [All weeks](../README.md)
 
+Every Copilot task has a cost, counted in AI credits. This week, you measure what one task costs, and see how one setting changes it.
+
 ## The problem
 
 Your manager asks what a Copilot task costs. Find out: give Copilot the same small task twice, with two different settings, and compare.
@@ -13,9 +15,19 @@ The task is a JSON API for the store:
 
 ## Use
 
-- **Copilot Fusion**: one choice instead of a model, with Standard or Max effort.
-- **Agent debug logs**: what each session used, in tokens and AI credits.
-- **OpenTelemetry**, optional: the same data in a trace viewer. It needs Docker, installed and running.
+### Copilot Fusion
+
+With Fusion, you don't pick a model. You pick an effort level, **Standard** or **Max**, and Copilot picks the models. Max can use stronger models, and more than one per task, so it usually costs more. Turn on **Fusion** in the model picker, in the chat box. It's still rolling out, and Max isn't in every plan.
+
+### Agent debug logs
+
+Models read and write text in tokens, which are small pieces of words. The more tokens a task uses, the more it costs, and each turn sends the whole conversation to the model again. Agent debug logs show what each session used: model turns, tool calls, tokens and AI credits. Open them from the Options menu at the top of Chat.
+
+![A session's Summary in Agent Debug Logs: 4 model turns, 7 tool calls, 137,576 total tokens and 0.64 AIC](../screenshots/04-ai-finops/debug-logs.png)
+
+### OpenTelemetry, optional
+
+OpenTelemetry is an open standard for traces: records of what a program did, step by step, and how long each step took. Copilot can send a trace of each session to a viewer, such as the Aspire dashboard. It needs Docker, installed and running. Start the viewer with [observability/docker-compose.yml](observability/docker-compose.yml), and turn on the export in Settings → GitHub Copilot → Chat.
 
 ## Get started
 
