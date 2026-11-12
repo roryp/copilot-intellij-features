@@ -10,7 +10,7 @@ Each run starts in a new worktree, from your last commit, so both start from the
 
    ![The Workspace menu under the chat box, with Worktree highlighted](../screenshots/01-fundamentals/worktree.png)
 
-2. Open the model picker in the chat box, turn on **Fusion**, and choose **Standard**.
+2. Open the model picker in the chat box, turn on **Fusion**, and choose **Standard**. The picker also offers **High**. This week you use **Standard** and **Max**.
 
    <img src="https://github.com/user-attachments/assets/bff63cb7-0a3f-4f55-99ce-4c2761547c2e" alt="Copilot Fusion in the model picker" width="600">
 
@@ -18,7 +18,7 @@ Each run starts in a new worktree, from your last commit, so both start from the
 
 3. Send:
 
-   > In 04-ai-finops, add GET /api/products and GET /api/products/{sku}, which returns 404 for an unknown SKU. Make ApiTests pass.
+   > In 04-ai-finops, add GET /api/products and GET /api/products/{sku}, which returns 404 for an unknown SKU. Make ApiTests pass. Don't change the tests.
 
 ## 2. Read the cost
 
@@ -32,15 +32,17 @@ Below Copilot's answer, the chat footer shows **Credits**. That's the same unit 
 
 *The Summary of one run. It used Claude Haiku 5.5, because Fusion hadn't reached this account yet.*
 
+Don't click **Apply** yet.
+
 ## 3. Run 2: Max effort
 
 Start another new session in **Worktree** mode. Choose Fusion **Max** in the model picker, send the same prompt, and record its numbers.
 
-Fusion Max isn't in every Copilot plan. If you can't choose it, compare a small model and a large model instead.
+Fusion Max isn't in every Copilot plan. If you can't choose it, turn Fusion off, pick a model, and compare that run with Fusion Standard.
 
-## 4. Keep one run
+## 4. Keep the Max run
 
-Open the session you want to keep. Above the chat box, it lists every file it changed, such as a new controller and `Catalog.java`. Click **Apply** to copy them all into your project.
+Open the Max session (or the single-model session, if you didn't have Max). Above the chat box, it lists every file it changed, such as a new controller and `Catalog.java`. Click **Apply** to copy them all into your project. Don't apply the Standard run.
 
 ![A Fusion Max run that changed two files, Catalog.java and ProductApiController.java, with Undo All and Apply](../screenshots/04-ai-finops/apply.png)
 

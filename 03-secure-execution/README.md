@@ -14,17 +14,25 @@ The tool checks the prices, but it also reads a file in your home folder. Let Co
 
 ### Local sandbox
 
-The sandbox limits what Copilot's commands can reach. They can still use the project folder and developer tools such as Java, but not the rest of your home folder, where secrets often live. Turn it on in Settings → GitHub Copilot → Sandbox, or with `/sandbox` in a session. A sandboxed session has a **Sandbox** label next to its title.
+The sandbox limits what Copilot's commands can reach. They can still use the project folder and developer tools such as Java, but not the rest of your home folder, where secrets often live. Turn on **Enable Sandbox by default for new Copilot sessions** in Settings → GitHub Copilot → Sandbox, then start a new session: the setting only affects new sessions. You can also use `/sandbox` in a session. A sandboxed session has a **Sandbox** label next to its title.
+
+The sandbox covers only Copilot's own tools, not IntelliJ's MCP server from week 2. Turn off that MCP server, or reject its terminal calls, when the sandbox matters.
 
 ### Managed settings and Policy Diagnostics
 
-An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running commands outside it. To see what's managed on your computer, open **Policy Diagnostics** from the Options menu at the top of Chat.
+An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running commands outside it. Trying that is optional. To demo it, copy the file into one of these folders and restart IntelliJ:
+
+- Windows: `C:\Program Files\GitHubCopilot\`
+- macOS: `/Library/Application Support/GitHubCopilot/`
+- Linux: `/etc/github-copilot/`
+
+To see what's managed on your computer, open **Policy Diagnostics** from the Options menu at the top of Chat. It's only in a **This computer** session.
 
 ![The Options menu at the top of Chat, with Policy Diagnostics highlighted](../screenshots/03-secure-execution/options-menu.png)
 
 ### Cloud sandbox, optional
 
-The cloud sandbox runs the whole session on a computer that GitHub hosts, in a clone of your fork, so your files aren't there at all. Pick it in the environment picker under the chat box. It's in preview, and you might not have it yet.
+The cloud sandbox runs the whole session on a computer that GitHub hosts, in a clone of your GitHub fork, so your local files aren't there at all. Its model picker is different from a **This computer** session. Pick it in the environment picker under the chat box. It's in preview, and you might not have it yet.
 
 ## Get started
 
@@ -42,11 +50,13 @@ The local sandbox runs on Windows 11 23H2 or later (25H2 works best), Apple Sili
 - `/dev/net/tun`
 - Unprivileged user namespaces, turned on
 
-On some Linux setups, the sandboxed run itself fails with a `NoSuchFileException`. If it does, use the cloud sandbox instead: in the environment picker under the chat box, change **This computer** to **Cloud sandbox**.
+A working sandbox still prints `Checked 6 prices: OK`, then fails to read `canary.txt`. On Linux that failure is a `NoSuchFileException`. On Windows it's an `AccessDeniedException`. If the run itself fails, with no `OK` line, use the cloud sandbox instead: in the environment picker under the chat box, change **This computer** to **Cloud sandbox**.
+
+Ask Copilot for a plain run of the tool: no changed `user.home`, no temporary home folder, no tricks. Check that the session has a **Sandbox** label next to its title.
 
 ## Done when
 
-- [ ] Copilot ran the supplier's tool, and the tool couldn't read `canary.txt`.
+- [ ] Copilot ran the supplier's tool in a sandboxed session, and the tool couldn't read `canary.txt`.
 - [ ] You opened Policy Diagnostics.
 - [ ] You deleted the `.trail-store` folder.
 

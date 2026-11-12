@@ -48,7 +48,7 @@ Do this after you apply both sessions. In Settings → GitHub Copilot → Comple
    public record Product(String sku, String name, String category, int price, int stock) {
    ```
 
-2. Copilot suggests the matching change in `Catalog.java`. Press **Tab** to jump there, then **Tab** to accept. Keep going until every product has a category.
+2. Copilot may suggest the matching change in `Catalog.java`. If it doesn't, type the first product's category yourself. Then press **Tab** to jump to the next suggestion, and **Tab** to accept. Keep going until every product has a category.
 
    ![A next edit suggestion in Catalog.java that adds a category to the other five products](../screenshots/01-fundamentals/nes-catalog.png)
 

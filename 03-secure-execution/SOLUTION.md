@@ -6,9 +6,9 @@ How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
 At the top of Chat, click **+** to start a new session. The sandbox is off, unless you turned it on in Settings. Send:
 
-> In 03-secure-execution, run the supplier's price checker.
+> In 03-secure-execution, run the supplier's price checker. Run it as is: don't change user.home, and don't use a temporary home folder.
 
-Copilot runs the tool. If it asks first, tell it to run the tool without the sandbox. Its output shows that it read your secret:
+Copilot runs the tool. If it asks first, tell it to run the tool without the sandbox, and without changing `user.home`. Its output shows that it read your secret:
 
 ```text
 Checked 6 prices: OK
@@ -19,11 +19,11 @@ Reading C:\Users\you\.trail-store\canary.txt: done, it says "pretend-secret"
 
 ## 2. Run it in the sandbox
 
-Turn on Settings → GitHub Copilot → Sandbox → **Enable Sandbox by default for new Copilot sessions**.
+Turn on Settings → GitHub Copilot → Sandbox → **Enable Sandbox by default for new Copilot sessions**. The setting only affects new sessions, so start a new session after you turn it on.
 
 ![Settings, GitHub Copilot, Sandbox, with Enable Sandbox by default for new Copilot sessions selected](../screenshots/03-secure-execution/sandbox-setting.png)
 
-Start a new session, and send the same prompt. This time the tool can't read the file, so it prints `failed`:
+Check that the new session has a **Sandbox** label next to its title, and send the same prompt. If Copilot wants to change `user.home` or use a temporary home folder, tell it not to. This time the tool can't read the file, so it prints `failed`:
 
 ```text
 Checked 6 prices: OK
@@ -34,9 +34,11 @@ Reading C:\Users\you\.trail-store\canary.txt: failed, java.nio.file.AccessDenied
 
 *A sandboxed session has a **Sandbox** label next to its title.*
 
-On some Linux setups, the sandboxed run itself fails with a `NoSuchFileException`. If it does, use the [cloud sandbox](#4-try-the-cloud-sandbox-optional) instead.
+On Linux, a working sandbox looks the same, except the failure is a `NoSuchFileException` instead of `AccessDeniedException`. If the run itself fails, with no `OK` line, use the [cloud sandbox](#4-try-the-cloud-sandbox-optional) instead.
 
 Sandboxed commands can use the project folder and developer tools such as Java, but not the rest of your home folder. If Copilot asks to run something outside the sandbox, choose **Reject**.
+
+The sandbox covers only Copilot's own tools, not IntelliJ's MCP server. In a sandboxed session, IntelliJ's `execute_terminal_command` from week 2's MCP server can still read `canary.txt`. Turn off the MCP server, or reject its terminal calls, when the sandbox matters.
 
 In a session that has started, `/sandbox enable` and `/sandbox disable` turn the sandbox on and off for that session.
 
@@ -53,7 +55,7 @@ An admin can require the sandbox for everyone with managed settings. [managed-se
 }
 ```
 
-To see what your organization manages, open **Policy Diagnostics** from the Options menu at the top of Chat.
+To see what your organization manages, open **Policy Diagnostics** from the Options menu at the top of Chat. It's only in a **This computer** session.
 
 ![The Options menu at the top of Chat, with Policy Diagnostics highlighted](../screenshots/03-secure-execution/options-menu.png)
 
@@ -73,7 +75,7 @@ If your organization already manages Copilot on that computer, for example with 
 
 ## 4. Try the cloud sandbox (optional)
 
-The cloud sandbox is in preview, and rolling out in phases. In the row under the chat box, change **This computer** to **Cloud sandbox**. The session runs on a Linux computer that GitHub hosts, in a clone of your fork, so your home folder isn't there at all.
+The cloud sandbox is in preview, and rolling out in phases. In the row under the chat box, change **This computer** to **Cloud sandbox**. The session runs on a Linux computer that GitHub hosts, in a clone of your GitHub fork, so your local files aren't there at all. The cloud session's model picker is different from a **This computer** session.
 
 ![The environment picker under the chat box, listing This computer and Environments](../screenshots/03-secure-execution/environment-picker.png)
 

@@ -4,9 +4,9 @@ How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
 ## 1. Turn on IntelliJ's MCP server
 
-In Settings → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
+In Settings → AI → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
 
-![Settings, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
+![Settings, AI, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 
@@ -34,7 +34,7 @@ Open **Customizations** at the top of Chat.
 
    ![Customizations listing bug-hunter under Workspace](../screenshots/02-tooling/agent.png)
 
-   *Once you save the file, bug-hunter is listed under Workspace, with its description.*
+   *Once you save the file, bug-hunter is listed under Workspace, with its description. A new agent may not show in the **Agent** selector until you restart IntelliJ.*
 
 3. **Skill.** On the left, click **Skills**. Click the arrow next to **Generate Skill**, choose **New Skill (Workspace)**, enter `run-the-store`, and click **Create**. This creates `.github/skills/run-the-store/SKILL.md`. Replace all of its text with:
 
@@ -52,7 +52,7 @@ Open **Customizations** at the top of Chat.
 
 ## 3. Find the bug
 
-Start a new session. If the row under the chat box still says **Worktree** from week 1, click it and choose **Workspace**. Then, in the chat box, pick **bug-hunter** in the **Agent** selector, and send:
+Start a new session. If the row under the chat box still says **Worktree** from week 1, click it and choose **Workspace**. Then, in the chat box, pick **bug-hunter** in the **Agent** selector. If it isn't there, restart IntelliJ, then pick it, and send:
 
 > In 02-tooling, jackets should be 20% off, but the store sells them for $0. SaleTests fails. Find out why and fix it.
 
@@ -80,9 +80,9 @@ int salePrice = product.price() * (100 - JACKET_SALE_PERCENT) / 100;
 
 Send:
 
-> In 02-tooling, rename the all() method in Catalog.java to products(), with IntelliJ's rename refactoring. Change only files in 02-tooling.
+> In 02-tooling, rename the all() method in Catalog.java to products(), with IntelliJ's rename refactoring. Rename code only, without searching comments and text. Change only files in 02-tooling.
 
-IntelliJ renames the method and every call to it.
+IntelliJ renames the method and every call to it. If you rename it yourself with **Shift+F6**, untick **Search in comments and strings** and **Search for text occurrences**, or the rename also changes text in other weeks.
 
 ![Copilot's chat, showing a Rename refactoring call to intellij-idea-2026.3](../screenshots/02-tooling/rename.png)
 

@@ -6,7 +6,7 @@ Every Copilot task has a cost, counted in AI credits. This week, you measure wha
 
 ## The problem
 
-Your manager asks what a Copilot task costs. Find out: give Copilot the same small task twice, with two different settings, and compare.
+Your manager asks what a Copilot task costs. Find out: give Copilot the same small task twice, once with Fusion **Standard** and once with Fusion **Max**, each in its own **Worktree** session, and compare. Don't apply the first run until you've finished the second, then apply only the Max run, so the second run doesn't start with the first run's code. Tell Copilot not to change the tests.
 
 The task is a JSON API for the store:
 
@@ -17,11 +17,11 @@ The task is a JSON API for the store:
 
 ### Copilot Fusion
 
-With Fusion, you don't pick a model. You pick an effort level, **Standard** or **Max**, and Copilot picks the models. Max can use stronger models, and more than one per task, so it usually costs more. Turn on **Fusion** in the model picker, in the chat box. It's still rolling out, and Max isn't in every plan.
+With Fusion, you don't pick a model. You pick an effort level, and Copilot picks the models. The picker shows **Standard**, **High** and **Max**. This week you compare Standard and Max. Max can use stronger models, and more than one per task, so it usually costs more. Turn on **Fusion** in the model picker, in the chat box. It's still rolling out, and Max isn't in every plan. If Max isn't in yours, compare Fusion Standard with a single model you pick: turn Fusion off, and choose a model.
 
 ### Agent debug logs
 
-Models read and write text in tokens, which are small pieces of words. The more tokens a task uses, the more it costs, and each turn sends the whole conversation to the model again. Agent debug logs show what each session used: model turns, tool calls, tokens and AI credits. Open them from the Options menu at the top of Chat.
+Models read and write text in tokens, which are small pieces of words. The more tokens a task uses, the more it costs, and each turn sends the whole conversation to the model again. Agent debug logs show what each session used. Open them from the Options menu at the top of Chat, and copy these fields from the **Summary** into [cost-report.md](cost-report.md): **Model Turns**, **Tool Calls**, **Total Tokens** and **Copilot Usage (AIC)**.
 
 ![A session's Summary in Agent Debug Logs: 4 model turns, 7 tool calls, 137,576 total tokens and 0.64 AIC](../screenshots/04-ai-finops/debug-logs.png)
 

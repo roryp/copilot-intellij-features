@@ -13,7 +13,7 @@ Trail Store needs two small features:
 
 Build both at the same time, with two Copilot sessions that don't get in each other's way. Then make one change yourself:
 
-- **Categories.** Each product shows its category: Jackets, Boots, Packs or Tents.
+- **Categories.** Each product shows its category on the page as `<p class="category">Jackets</p>`. The categories are Jackets, Boots, Packs or Tents.
 
 ## Use
 
@@ -27,7 +27,7 @@ Two sessions in the same folder can trip over each other's changes. A git worktr
 
 ### Next edit suggestions
 
-Completions finish the line you're typing. Next edit suggestions go further: after you change one line, Copilot suggests the edit that follows from it, even in another file. Press **Tab** to jump to it, and **Tab** again to accept it. Check it's on in Settings → GitHub Copilot → Completions.
+Completions finish the line you're typing. Next edit suggestions go further: after you change one line, Copilot suggests the edit that follows from it, even in another file. Press **Tab** to jump to it, and **Tab** again to accept it. You may need to type the first category in `Catalog.java` yourself, then press **Tab** to fill in the rest. Check it's on in Settings → GitHub Copilot → Completions.
 
 ## Get started
 
