@@ -42,9 +42,9 @@ Fusion Max isn't in every Copilot plan. If you can't choose it, compare a small 
 
 Open the session you want to keep. Above the chat box, it lists every file it changed, such as a new controller and `Catalog.java`. Click **Apply** to copy them all into your project.
 
-![A run that changed one file, ProductController.java, with Undo All and Apply](../screenshots/04-ai-finops/apply.png)
+![A Fusion Max run that changed two files, Catalog.java and ProductApiController.java, with Undo All and Apply](../screenshots/04-ai-finops/apply.png)
 
-*Copilot's changes vary from run to run. This run only added a controller.*
+*Copilot's changes vary from run to run, so your file names might differ.*
 
 If an **Uncommitted Changes** card appears, for example because of your numbers in `cost-report.md`, it offers **Copy**, **Move**, **Skip** and **Cancel**. Choose **Skip**.
 
