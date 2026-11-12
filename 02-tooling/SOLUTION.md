@@ -4,9 +4,9 @@ How to solve [the challenge](README.md) with GitHub Copilot in IntelliJ IDEA.
 
 ## 1. Turn on IntelliJ's MCP server
 
-In Settings → AI → MCP Server, select **Enable MCP Server**, and click **OK**. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
+In Settings → MCP Server (in some versions, under AI), select **Enable MCP Server**, and click **OK**. If you don't see it, search Settings for MCP Server. Copilot can now use IntelliJ's tools. In **Customizations**, at the top of Chat, **MCP Servers** lists **IntelliJ IDEA MCP Server** as **Running**.
 
-![Settings, AI, MCP Server, with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
+![Settings, MCP Server (in some versions, under AI), with Enable MCP Server selected](../screenshots/02-tooling/mcp-server-setting.png)
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 
@@ -34,7 +34,7 @@ Open **Customizations** at the top of Chat.
 
    ![Customizations listing bug-hunter under Workspace](../screenshots/02-tooling/agent.png)
 
-   *Once you save the file, bug-hunter is listed under Workspace, with its description. A new agent may not show in the **Agent** selector until you restart IntelliJ.*
+   *Once you save the file, bug-hunter is listed under Workspace, with its description. If it isn't listed in the **Agent** selector, restart IntelliJ.*
 
 3. **Skill.** On the left, click **Skills**. Click the arrow next to **Generate Skill**, choose **New Skill (Workspace)**, enter `run-the-store`, and click **Create**. This creates `.github/skills/run-the-store/SKILL.md`. Replace all of its text with:
 

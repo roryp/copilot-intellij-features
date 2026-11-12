@@ -6,7 +6,7 @@ Every Copilot task has a cost, counted in AI credits. This week, you measure wha
 
 ## The problem
 
-Your manager asks what a Copilot task costs. Find out: give Copilot the same small task twice, once with Fusion **Standard** and once with Fusion **Max**, each in its own **Worktree** session, and compare. Don't apply the first run until you've finished the second, then apply only the Max run, so the second run doesn't start with the first run's code. Tell Copilot not to change the tests.
+Your manager asks what a Copilot task costs. Find out: give Copilot the same small task twice, with two different settings, each in its own **Worktree** session, and compare. Don't apply the first run until you've finished the second, then apply only the higher-effort run, so the second run doesn't start with the first run's code. Tell Copilot not to change the tests.
 
 The task is a JSON API for the store:
 
@@ -17,7 +17,9 @@ The task is a JSON API for the store:
 
 ### Copilot Fusion
 
-With Fusion, you don't pick a model. You pick an effort level, and Copilot picks the models. The picker shows **Standard**, **High** and **Max**. This week you compare Standard and Max. Max can use stronger models, and more than one per task, so it usually costs more. Turn on **Fusion** in the model picker, in the chat box. It's still rolling out, and Max isn't in every plan. If Max isn't in yours, compare Fusion Standard with a single model you pick: turn Fusion off, and choose a model.
+With Fusion, you don't pick a model. You pick an effort level, and Copilot picks the models. The Fusion picker shows **Standard**, **High** and **Max**. This week, if you have Fusion, compare Standard and Max. Max can use stronger models, and more than one per task, so it usually costs more. Turn on **Fusion** in the model picker, in the chat box.
+
+Fusion is still rolling out, and it isn't in every plan. If it isn't in yours, leave it off, or turn it off. Pick a model, and compare it at two effort levels, such as **Medium** and **Max**, or compare two models. The per-model effort picker offers **Low**, **Medium**, **High**, **Extra High** and **Max**.
 
 ### Agent debug logs
 

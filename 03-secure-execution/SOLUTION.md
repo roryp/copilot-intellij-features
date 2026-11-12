@@ -38,7 +38,7 @@ On Linux, a working sandbox looks the same, except the failure is a `NoSuchFileE
 
 Sandboxed commands can use the project folder and developer tools such as Java, but not the rest of your home folder. If Copilot asks to run something outside the sandbox, choose **Reject**.
 
-The sandbox covers only Copilot's own tools, not IntelliJ's MCP server. In a sandboxed session, IntelliJ's `execute_terminal_command` from week 2's MCP server can still read `canary.txt`. Turn off the MCP server, or reject its terminal calls, when the sandbox matters.
+The sandbox covers only Copilot's own tools, not IntelliJ's MCP server. In a sandboxed session, IntelliJ's `execute_terminal_command` from week 2's MCP server can still read `canary.txt`. Turn off the MCP server when the sandbox matters: it may run terminal commands without asking.
 
 In a session that has started, `/sandbox enable` and `/sandbox disable` turn the sandbox on and off for that session.
 

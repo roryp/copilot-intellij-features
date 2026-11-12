@@ -16,7 +16,7 @@ The tool checks the prices, but it also reads a file in your home folder. Let Co
 
 The sandbox limits what Copilot's commands can reach. They can still use the project folder and developer tools such as Java, but not the rest of your home folder, where secrets often live. Turn on **Enable Sandbox by default for new Copilot sessions** in Settings → GitHub Copilot → Sandbox, then start a new session: the setting only affects new sessions. You can also use `/sandbox` in a session. A sandboxed session has a **Sandbox** label next to its title.
 
-The sandbox covers only Copilot's own tools, not IntelliJ's MCP server from week 2. Turn off that MCP server, or reject its terminal calls, when the sandbox matters.
+The sandbox covers only Copilot's own tools, not IntelliJ's MCP server from week 2. Turn off that MCP server when the sandbox matters: it may run terminal commands without asking.
 
 ### Managed settings and Policy Diagnostics
 

@@ -10,7 +10,9 @@ Each run starts in a new worktree, from your last commit, so both start from the
 
    ![The Workspace menu under the chat box, with Worktree highlighted](../screenshots/01-fundamentals/worktree.png)
 
-2. Open the model picker in the chat box, turn on **Fusion**, and choose **Standard**. The picker also offers **High**. This week you use **Standard** and **Max**.
+2. Open the model picker in the chat box. If you have **Fusion**, turn it on, and choose **Standard**. The Fusion picker also offers **High**. This week, with Fusion, you use **Standard** and **Max**.
+
+   If Fusion isn't there, pick a model, and choose **Medium**. The per-model effort picker offers **Low**, **Medium**, **High**, **Extra High** and **Max**.
 
    <img src="https://github.com/user-attachments/assets/bff63cb7-0a3f-4f55-99ce-4c2761547c2e" alt="Copilot Fusion in the model picker" width="600">
 
@@ -36,13 +38,11 @@ Don't click **Apply** yet.
 
 ## 3. Run 2: Max effort
 
-Start another new session in **Worktree** mode. Choose Fusion **Max** in the model picker, send the same prompt, and record its numbers.
+Start another new session in **Worktree** mode. If you used Fusion for run 1, choose Fusion **Max**. If you used a single model, keep that model and choose **Max**, or pick a second model. Send the same prompt, and record its numbers.
 
-Fusion Max isn't in every Copilot plan. If you can't choose it, turn Fusion off, pick a model, and compare that run with Fusion Standard.
+## 4. Keep the higher-effort run
 
-## 4. Keep the Max run
-
-Open the Max session (or the single-model session, if you didn't have Max). Above the chat box, it lists every file it changed, such as a new controller and `Catalog.java`. Click **Apply** to copy them all into your project. Don't apply the Standard run.
+Open the Max session (or your higher-effort session). Above the chat box, it lists every file it changed, such as a new controller and `Catalog.java`. Click **Apply** to copy them all into your project. Don't apply the first run.
 
 ![A Fusion Max run that changed two files, Catalog.java and ProductApiController.java, with Undo All and Apply](../screenshots/04-ai-finops/apply.png)
 
@@ -56,7 +56,7 @@ Then run `./mvnw -B -ntp verify` again, or click the green run icon next to `Api
 
 ## 5. Compare
 
-Max can use stronger models, and more than one model for a task, such as one that writes the code and others that check it. So it usually costs more. Each turn sends the whole conversation to the model again, so the token count grows quickly. To see which models Fusion used, hover over the effort level below Copilot's answer.
+With Fusion, Max can use stronger models, and more than one model for a task, such as one that writes the code and others that check it. So it usually costs more. A higher effort level on one model usually costs more too. Each turn sends the whole conversation to the model again, so the token count grows quickly. If you used Fusion, hover over the effort level below Copilot's answer to see which models it used.
 
 ## 6. See the traces (optional)
 
@@ -76,7 +76,7 @@ When you're done, stop the dashboard with `docker compose down`, and turn off th
 
 ## What you used
 
-- **GitHub Copilot:** Copilot Fusion, worktree sessions, **Apply**, Agent Debug Logs, OpenTelemetry export.
+- **GitHub Copilot:** Copilot Fusion or the model picker, worktree sessions, **Apply**, Agent Debug Logs, OpenTelemetry export.
 - **IntelliJ IDEA:** running `docker-compose.yml` from the editor, the test runner.
 
 ## The code

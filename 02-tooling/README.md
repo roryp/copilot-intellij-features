@@ -23,14 +23,14 @@ Also set up Copilot for this workspace, and rename one method:
 **Customizations**, at the top of Chat, is where you shape what Copilot knows and can do:
 
 - A **plugin** is a ready-made bundle, such as prompts, instructions and agents, from a marketplace.
-- A **custom agent** is Copilot with your own instructions for one kind of job. You pick it in the **Agent** selector in the chat box. A new agent may not show there until you restart IntelliJ.
+- A **custom agent** is Copilot with your own instructions for one kind of job. You pick it in the **Agent** selector in the chat box. If it isn't listed, restart IntelliJ.
 - A **skill** teaches Copilot one task, such as how to run the store. Copilot reads it when the task comes up.
 
 The agents and skills you create for the workspace are files in `.github/`, so everyone who clones the repo gets them.
 
 ### Built-in MCP server
 
-MCP, the Model Context Protocol, is an open standard that lets AI use tools from other programs. IntelliJ has its own MCP server, so Copilot can use IntelliJ's test runner, debugger and rename refactoring, not just the terminal. Turn it on in Settings → AI → MCP Server.
+MCP, the Model Context Protocol, is an open standard that lets AI use tools from other programs. IntelliJ has its own MCP server, so Copilot can use IntelliJ's test runner, debugger and rename refactoring, not just the terminal. Turn it on in Settings → MCP Server (in some versions, under AI), or search Settings for MCP Server.
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 
