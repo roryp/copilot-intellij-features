@@ -9,7 +9,7 @@
     <artifactId>copilot-intellij-features</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>Copilot for JetBrains Reactor challenges</name>
+    <name>GitHub Copilot in IntelliJ IDEA workshop</name>
     <modules>
         <module>01-fundamentals</module>
         <module>02-tooling</module>

@@ -1,6 +1,6 @@
 # Week 4: AI FinOps
 
-**What does a task cost?** · Reactor series, part 4 of 5 · [All weeks](../README.md)
+**What does a task cost?** · Part 4 of 5 · [All weeks](../README.md)
 
 ## The problem
 

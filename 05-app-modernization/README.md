@@ -1,6 +1,6 @@
 # Week 5: App modernization
 
-**An old app, a new home** · Reactor series, part 5 of 5 · [All weeks](../README.md)
+**An old app, a new home** · Part 5 of 5 · [All weeks](../README.md)
 
 > 🚧 TBC
 

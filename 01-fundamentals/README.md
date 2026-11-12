@@ -1,6 +1,6 @@
 # Week 1: Fundamentals
 
-**Two features at once** · Reactor series, part 1 of 5 · [All weeks](../README.md)
+**Two features at once** · Part 1 of 5 · [All weeks](../README.md)
 
 ## The problem
 

@@ -1,6 +1,6 @@
 # Week 2: Tooling
 
-**Free jackets** · Reactor series, part 2 of 5 · [All weeks](../README.md)
+**Free jackets** · Part 2 of 5 · [All weeks](../README.md)
 
 ## The problem
 

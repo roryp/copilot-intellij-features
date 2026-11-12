@@ -1,6 +1,6 @@
 # Week 3: Secure execution and governance
 
-**Keep your secrets secret** · Reactor series, part 3 of 5 · [All weeks](../README.md)
+**Keep your secrets secret** · Part 3 of 5 · [All weeks](../README.md)
 
 ## The problem
 
