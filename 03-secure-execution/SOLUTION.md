@@ -8,7 +8,7 @@ At the top of Chat, click **+** to start a new session. The sandbox is off, unle
 
 > In 03-secure-execution, run the supplier's price checker.
 
-Copilot runs the tool. Its output shows that it read your secret:
+Copilot runs the tool. If it asks first, tell it to run the tool without the sandbox. Its output shows that it read your secret:
 
 ```text
 Checked 6 prices: OK
@@ -68,6 +68,8 @@ To demo it, on a computer where you're an admin, copy the file into one of these
 - Linux: `/etc/github-copilot/`
 
 Now **Enable Sandbox by default for new Copilot sessions** is locked on, `/sandbox disable` is refused, and Policy Diagnostics shows the `sandbox` settings. Delete the file and restart IntelliJ when you're done.
+
+If your organization already manages Copilot on that computer, for example with a Windows registry policy, the file is ignored. Policy Diagnostics shows what's managed.
 
 ## 4. Try the cloud sandbox (optional)
 
