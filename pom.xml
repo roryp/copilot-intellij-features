@@ -4,7 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Lists the weekly challenges so IntelliJ opens them as one Maven project.
-         Each week is a standalone app: build it from its own folder with its own Maven wrapper. -->
+         Each week is a standalone app: build it from its own folder with its own Maven wrapper.
+         Week 5 isn't listed: attendees open it as its own project, so its upgrade can't touch the other weeks. -->
     <groupId>com.contoso</groupId>
     <artifactId>copilot-intellij-features</artifactId>
     <version>1.0.0</version>

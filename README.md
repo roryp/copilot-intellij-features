@@ -8,7 +8,7 @@ Each week has a simple challenge to solve in IntelliJ IDEA with GitHub Copilot, 
 | 2 | Tooling | Customization panel, built-in MCP server, browser use | [Free jackets](02-tooling/README.md) | [Solution](02-tooling/SOLUTION.md) |
 | 3 | Secure execution and governance | Local sandbox, managed settings and Policy Diagnostics, cloud sandbox | [Keep your secrets secret](03-secure-execution/README.md) | [Solution](03-secure-execution/SOLUTION.md) |
 | 4 | AI FinOps | Copilot Fusion, agent debug logs, OpenTelemetry | [What does a task cost?](04-ai-finops/README.md) | [Solution](04-ai-finops/SOLUTION.md) |
-| 5 | App modernization | GitHub Copilot modernization plugin | [An old app, a new home](05-app-modernization/README.md) (TBC) | [Solution](05-app-modernization/SOLUTION.md) (TBC) |
+| 5 | App modernization | GitHub Copilot modernization plugin: upgrade agent, CVE check | [An old app, a new home](05-app-modernization/README.md) | [Solution](05-app-modernization/SOLUTION.md) |
 
 ## What you need
 
@@ -31,6 +31,6 @@ JetBrains Marketplace still has GitHub Copilot 1.21.0. Until 1.21.1 ships, get i
 
 Fork this repo, clone your fork, and open the folder in IntelliJ IDEA. Then start with [week 1](01-fundamentals/README.md).
 
-Each week's folder has the challenge in `README.md` and the solution in `SOLUTION.md`. [.github/copilot-instructions.md](.github/copilot-instructions.md) keeps Copilot inside the week's folder, and out of the solutions. Weeks 1, 2 and 4 are copies of Trail Store, a small Spring Boot store from [spring-ai-webstore](https://github.com/roryp/spring-ai-webstore). Failing tests show what to fix. The weeks don't depend on each other.
+Each week's folder has the challenge in `README.md` and the solution in `SOLUTION.md`. [.github/copilot-instructions.md](.github/copilot-instructions.md) keeps Copilot inside the week's folder, and out of the solutions. Weeks 1, 2, 4 and 5 are copies of Trail Store, a small Spring Boot store from [spring-ai-webstore](https://github.com/roryp/spring-ai-webstore). In weeks 1, 2 and 4, failing tests show what to fix. Week 5's copy is an old one, for Copilot to upgrade. The weeks don't depend on each other.
 
 Browser use, the cloud sandbox and Copilot Fusion are still rolling out, so you might not have them yet. You can still finish every week without them.
