@@ -30,7 +30,7 @@ The agents and skills you create for the workspace are files in `.github/`, so e
 
 ### Built-in MCP server
 
-MCP, the Model Context Protocol, is an open standard that lets AI use tools from other programs. IntelliJ has its own MCP server, so Copilot can use IntelliJ's test runner, debugger and rename refactoring, not just the terminal. Turn it on in Settings → MCP Server (in some versions, under AI), or search Settings for MCP Server.
+MCP, the Model Context Protocol, is an open standard that lets AI use tools from other programs. IntelliJ has its own MCP server, so Copilot can use IntelliJ's test runner, debugger and rename refactoring, not just the terminal. Turn it on in Settings → MCP Server (in some versions, under AI), or search Settings for MCP Server. Its tools run outside the sandbox you'll meet in week 3, so turn it off when you finish this week.
 
 ![Customizations, MCP Servers, with IntelliJ IDEA MCP Server running](../screenshots/02-tooling/mcp-servers.png)
 

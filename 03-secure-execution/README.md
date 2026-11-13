@@ -20,7 +20,7 @@ The sandbox covers only Copilot's own tools, not IntelliJ's MCP server from week
 
 ### Managed settings and Policy Diagnostics
 
-An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running commands outside it. Trying that is optional. To demo it, copy the file into one of these folders and restart IntelliJ:
+An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running Copilot's own commands outside it, but it doesn't cover MCP servers such as IntelliJ's. Trying that is optional. To demo it, copy the file into one of these folders and restart IntelliJ:
 
 - Windows: `C:\Program Files\GitHubCopilot\`
 - macOS: `/Library/Application Support/GitHubCopilot/`
@@ -52,10 +52,13 @@ The local sandbox runs on Windows 11 23H2 or later (25H2 works best), Apple Sili
 
 A working sandbox still prints `Checked 6 prices: OK`, then fails to read `canary.txt`. On Linux that failure is a `NoSuchFileException`. On Windows it's an `AccessDeniedException`. If the run itself fails, with no `OK` line, use the cloud sandbox instead: in the environment picker under the chat box, change **This computer** to **Cloud sandbox**.
 
-Ask Copilot for a plain run of the tool: no changed `user.home`, no temporary home folder, no tricks. Check that the session has a **Sandbox** label next to its title.
+If you turned on IntelliJ's MCP server in week 2, turn it off: in Settings → MCP Server (in some versions, under AI), untick **Enable MCP Server**.
+
+Ask Copilot for a plain run of the tool: no changed `user.home`, no temporary home folder, no tricks. Check that the session has a **Sandbox** label next to its title, and that no step in Chat says **Invoked** with `intellij-idea` after it: those steps come from IntelliJ's MCP server, outside the sandbox.
 
 ## Done when
 
+- [ ] IntelliJ's MCP server is off.
 - [ ] Copilot ran the supplier's tool in a sandboxed session, and the tool couldn't read `canary.txt`.
 - [ ] You opened Policy Diagnostics.
 - [ ] You deleted the `.trail-store` folder.
