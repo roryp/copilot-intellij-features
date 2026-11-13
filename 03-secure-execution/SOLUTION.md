@@ -19,6 +19,8 @@ Reading C:\Users\you\.trail-store\canary.txt: done, it says "pretend-secret"
 
 ## 2. Run it in the sandbox
 
+If you turned on IntelliJ's MCP server in week 2, turn it off first: in Settings → MCP Server (in some versions, under AI), untick **Enable MCP Server**. The sandbox covers only Copilot's own commands, not IntelliJ's MCP server: in a sandboxed session, its `execute_terminal_command` can still read `canary.txt`, and it may run commands without asking.
+
 Turn on Settings → GitHub Copilot → Sandbox → **Enable Sandbox by default for new Copilot sessions**. The setting only affects new sessions, so start a new session after you turn it on.
 
 ![Settings, GitHub Copilot, Sandbox, with Enable Sandbox by default for new Copilot sessions selected](../screenshots/03-secure-execution/sandbox-setting.png)
@@ -34,17 +36,19 @@ Reading C:\Users\you\.trail-store\canary.txt: failed, java.nio.file.AccessDenied
 
 *A sandboxed session has a **Sandbox** label next to its title.*
 
+Then check which tool ran the price checker. In Chat, its step must say **Ran**, followed by the command: that's Copilot's own command tool. A step that says **Invoked**, followed by a server's name such as `intellij-idea`, is an MCP server's tool, outside the sandbox: turn that server off, and try again in a new session.
+
+It worked only if all four are true: the session has the **Sandbox** label, Copilot's own command tool ran the price checker, it printed `Checked 6 prices: OK`, and it couldn't read `canary.txt`, which step 1 showed is there. That shows that this command ran in the sandbox. It doesn't prove that every tool is contained: IntelliJ's MCP server, for one, runs outside it.
+
 On Linux, a working sandbox looks the same, except the failure is a `NoSuchFileException` instead of `AccessDeniedException`. If the run itself fails, with no `OK` line, use the [cloud sandbox](#4-try-the-cloud-sandbox-optional) instead.
 
 Sandboxed commands can use the project folder and developer tools such as Java, but not the rest of your home folder. If Copilot asks to run something outside the sandbox, choose **Reject**.
-
-The sandbox covers only Copilot's own tools, not IntelliJ's MCP server. In a sandboxed session, IntelliJ's `execute_terminal_command` from week 2's MCP server can still read `canary.txt`. Turn off the MCP server when the sandbox matters: it may run terminal commands without asking.
 
 In a session that has started, `/sandbox enable` and `/sandbox disable` turn the sandbox on and off for that session.
 
 ## 3. Make it a rule
 
-An admin can require the sandbox for everyone with managed settings. [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running commands outside it:
+An admin can require the sandbox for everyone with managed settings. [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running Copilot's own commands outside it:
 
 ```json
 {
@@ -54,6 +58,8 @@ An admin can require the sandbox for everyone with managed settings. [managed-se
   }
 }
 ```
+
+It doesn't control IntelliJ's MCP server, whose commands run outside the sandbox, so keep that server off.
 
 To see what your organization manages, open **Policy Diagnostics** from the Options menu at the top of Chat. It's only in a **This computer** session.
 

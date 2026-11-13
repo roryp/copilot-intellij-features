@@ -16,11 +16,11 @@ The tool checks the prices, but it also reads a file in your home folder. Let Co
 
 The sandbox limits what Copilot's commands can reach. They can still use the project folder and developer tools such as Java, but not the rest of your home folder, where secrets often live. Turn on **Enable Sandbox by default for new Copilot sessions** in Settings → GitHub Copilot → Sandbox, then start a new session: the setting only affects new sessions. You can also use `/sandbox` in a session. A sandboxed session has a **Sandbox** label next to its title.
 
-The sandbox covers only Copilot's own tools, not IntelliJ's MCP server from week 2. Turn off that MCP server when the sandbox matters: it may run terminal commands without asking.
+The sandbox covers only Copilot's own commands, not IntelliJ's MCP server from week 2. Turn off that MCP server before a sandboxed run: it may run terminal commands without asking, outside the sandbox.
 
 ### Managed settings and Policy Diagnostics
 
-An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running Copilot's own commands outside it, but it doesn't cover MCP servers such as IntelliJ's. Trying that is optional. To demo it, copy the file into one of these folders and restart IntelliJ:
+An admin can set Copilot settings that users can't change: through device management such as Intune, with a `managed-settings.json` file, or for a whole organization on GitHub. This folder's [managed-settings.json](managed-settings.json) turns the sandbox on, and stops anyone running Copilot's own commands outside it, but it doesn't control IntelliJ's MCP server, whose commands run outside the sandbox. Trying the file is optional. To demo it, copy the file into one of these folders and restart IntelliJ:
 
 - Windows: `C:\Program Files\GitHubCopilot\`
 - macOS: `/Library/Application Support/GitHubCopilot/`
@@ -41,6 +41,8 @@ Make a pretend secret: a file called `canary.txt`, in a `.trail-store` folder in
 - macOS and Linux: `mkdir -p ~/.trail-store && echo pretend-secret > ~/.trail-store/canary.txt`
 - Windows PowerShell: `New-Item -ItemType Directory -Force ~/.trail-store; Set-Content ~/.trail-store/canary.txt pretend-secret`
 
+Check that it's there, in the same terminal: `cat ~/.trail-store/canary.txt` prints `pretend-secret`. A failed read only counts when the file is there.
+
 The local sandbox runs on Windows 11 23H2 or later (25H2 works best), Apple Silicon Macs and Linux. On Linux, it needs:
 
 - `bubblewrap` 0.5 or later
@@ -50,16 +52,23 @@ The local sandbox runs on Windows 11 23H2 or later (25H2 works best), Apple Sili
 - `/dev/net/tun`
 - Unprivileged user namespaces, turned on
 
-A working sandbox still prints `Checked 6 prices: OK`, then fails to read `canary.txt`. On Linux that failure is a `NoSuchFileException`. On Windows it's an `AccessDeniedException`. If the run itself fails, with no `OK` line, use the cloud sandbox instead: in the environment picker under the chat box, change **This computer** to **Cloud sandbox**.
+If you turned on IntelliJ's MCP server in week 2, turn it off before the sandboxed run: in Settings → MCP Server (in some versions, under AI), untick **Enable MCP Server**.
 
-If you turned on IntelliJ's MCP server in week 2, turn it off: in Settings → MCP Server (in some versions, under AI), untick **Enable MCP Server**.
+Ask Copilot for a plain run of the tool: no changed `user.home`, no temporary home folder, no tricks. The run counts only when all of these are true:
 
-Ask Copilot for a plain run of the tool: no changed `user.home`, no temporary home folder, no tricks. Check that the session has a **Sandbox** label next to its title, and that no step in Chat says **Invoked** with `intellij-idea` after it: those steps come from IntelliJ's MCP server, outside the sandbox.
+- The session has a **Sandbox** label next to its title.
+- In Chat, the step that ran the tool says **Ran**, followed by its command: that's Copilot's own command tool. A step that says **Invoked**, followed by a server's name such as `intellij-idea`, is an MCP server's tool, outside the sandbox.
+- The tool prints `Checked 6 prices: OK`.
+- Then it fails to read `canary.txt`, though you checked that the file is there. On Linux that failure is a `NoSuchFileException`. On Windows it's an `AccessDeniedException`.
+
+The label and the failed read show that this command ran in the sandbox. They don't prove that every tool is contained: IntelliJ's MCP server, for one, runs its commands outside it.
+
+If the run itself fails, with no `OK` line, use the cloud sandbox instead: in the environment picker under the chat box, change **This computer** to **Cloud sandbox**.
 
 ## Done when
 
 - [ ] IntelliJ's MCP server is off.
-- [ ] Copilot ran the supplier's tool in a sandboxed session, and the tool couldn't read `canary.txt`.
+- [ ] In a sandboxed session, Copilot's own command tool ran the supplier's tool. It printed `Checked 6 prices: OK`, then couldn't read `canary.txt`, though the file is on your computer.
 - [ ] You opened Policy Diagnostics.
 - [ ] You deleted the `.trail-store` folder.
 

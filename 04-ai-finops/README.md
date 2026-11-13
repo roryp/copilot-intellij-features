@@ -29,7 +29,7 @@ Models read and write text in tokens, which are small pieces of words. The more 
 
 ### OpenTelemetry, optional
 
-OpenTelemetry is an open standard for traces: records of what a program did, step by step, and how long each step took. Copilot can send a trace of each session to a viewer, such as the Aspire dashboard. It needs Docker, installed and running. Start the viewer with [observability/docker-compose.yml](observability/docker-compose.yml), and turn on the export in Settings → GitHub Copilot → Chat.
+OpenTelemetry is an open standard for traces: records of what a program did, step by step, and how long each step took. Copilot can send a trace of each session to a viewer, such as the Aspire dashboard. It needs Docker, installed and running. Start the viewer with [observability/docker-compose.yml](observability/docker-compose.yml), and turn on the export in Settings → GitHub Copilot → Chat. The viewer has no sign-in, so the file publishes it on `127.0.0.1` only: open http://localhost:18888 on the same computer. When you're done, stop it with `docker compose down` in the `observability` folder.
 
 ## Get started
 
