@@ -46,7 +46,7 @@ Open `05-app-modernization` in its own window, and install the **GitHub Copilot 
 
    ![Vulnerable Dependencies: no issues found](../screenshots/05-app-modernization/vulnerable-fixed.png)
 
-7. **Run the store.** Run **StoreApplication** from the toolbar. http://localhost:8080 shows the six products, and Spring Boot 4.
+7. **Run the store.** Open `src/main/java/com/contoso/store/StoreApplication.java`, and click the green **Run** arrow next to `main`. http://localhost:8080 shows the six products, and Spring Boot 4.
 
    ![Trail Store on Spring Boot 4.1.2, with the six products](../screenshots/05-app-modernization/store.png)
 
